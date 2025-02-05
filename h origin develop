@@ -1,0 +1,231 @@
+[1mdiff --git a/README.md b/README.md[m
+[1mindex 1cc701d..f72aadd 100644[m
+[1m--- a/README.md[m
+[1m+++ b/README.md[m
+[36m@@ -1 +1,103 @@[m
+[31m-# qa_python[m
+\ No newline at end of file[m
+[32m+[m[32m# qa_python[m
+[32m+[m[32m# qa_python[m
+[32m+[m[32mПроект написан в рамках прохождения курса "Автоматизатор тестирования на Python"[m
+[32m+[m
+[32m+[m[32m###### **_Тесты для методов_**[m
+[32m+[m
+[32m+[m[32m1. Добавление названия книги[m[41m [m
+[32m+[m[32m2. Установка жанра книги[m
+[32m+[m[32m3. Получить жанр по названию[m
+[32m+[m[32m4. Список книг с определенным жанром[m
+[32m+[m[32m5. Вывести текущий словарь книг[m
+[32m+[m[32m6. Вывести книги без возрастного рейтинга[m
+[32m+[m[32m7. Добавить книгу в избранное[m
+[32m+[m[32m8. Добавить в избранное книги с одинаковым названием[m
+[32m+[m[32m9. Удалить книгу из избранного[m
+[32m+[m[32m10. Удаление одной и той же книги повторно[m
+[32m+[m[32m11. Получить текущий список избранного[m
+[32m+[m
+[32m+[m[32m###### **_Реализованные фикстуры_**[m
+[32m+[m
+[32m+[m[32m* book_names_and_genre - возвращает словарь книга : жанр для тестовых методов[m
+[32m+[m[32m* books_collector - возвращает объект тестируемого класса[m
+[32m+[m[32m* add_books - заполняет словарь books_genre названиями книг[m
+[32m+[m[32m* set_genre - заполняет словарь books_genre жанрами[m
+[32m+[m[32m*[m[41m [m
+[32m+[m
+[32m+[m[32m###### **_Добавление названия книги_**[m
+[32m+[m
+[32m+[m[32m*  test_add_new_book_not_added_with_invalid_name[m
+[32m+[m
+[32m+[m[32mПроверяет, что пустое имя "" не будет добавлено и что нельзя добавить название[m[41m [m
+[32m+[m[32mкниги длинне 40 символов[m
+[32m+[m
+[32m+[m
+[32m+[m[32m###### **_Установка жанра книги_**[m
+[32m+[m
+[32m+[m[32m* test_set_book_genre_1_set_and_1_not_set[m
+[32m+[m[32m*[m[41m [m
+[32m+[m[32mПроверяет, что будет добавлен только жанр имеющийся в захардкоженном списке жанров. Если жанр не из[m[41m [m
+[32m+[m[32mсписка, то он не будет добавлен.[m
+[32m+[m
+[32m+[m
+[32m+[m[32m###### **_Получить жанр по названию_**[m
+[32m+[m
+[32m+[m[32m* test_get_book_genre_return_genre_by_name[m
+[32m+[m
+[32m+[m[32mПроверяется, что будет возвращен верный жанр по названию книги.[m
+[32m+[m
+[32m+[m[32m###### **_Список книг с определенным жанром_**[m
+[32m+[m
+[32m+[m[32m* test_get_books_with_specific_genre_returned_5[m
+[32m+[m
+[32m+[m[32mФикстура добавляет названия книг.[m
+[32m+[m[32mУстанавливаем для каждой книги из 5 одинаковый жанр: Фантастика[m
+[32m+[m[32mПроверяется, что возвращаемый список содержит 5 книг.[m
+[32m+[m
+[32m+[m[32m###### **Вывести текущий словарь книг**[m
+[32m+[m
+[32m+[m[32m* test_get_books_genre_dict_books_genre_returned[m
+[32m+[m
+[32m+[m[32mФикстуры добавляют названия книг и жанры.[m
+[32m+[m[32mПроверяется, что выведен тот же словарь по содержанию, что и добавленный фикстурами[m
+[32m+[m
+[32m+[m[32m###### **_Вывести книги без возрастного рейтинга_**[m
+[32m+[m
+[32m+[m[32m* test_get_books_for_children_return_non_rating_books[m
+[32m+[m
+[32m+[m[32mФикстуры добавляют названия книг и жанры.[m
+[32m+[m[32mПроверяем что отданный список по сдержанию равен ожидаемому списку с книгами без рейтинга[m
+[32m+[m
+[32m+[m[32m###### **_Добавить книгу в избранное_**[m
+[32m+[m
+[32m+[m[32m* test_add_book_in_favorites_not_added_book[m
+[32m+[m
+[32m+[m[32mПроверяем, что добавляем книгу котрой нет в списке избранного.[m
+[32m+[m
+[32m+[m[32m###### **_Добавить в избранное книги с одинвковым названмем_**[m
+[32m+[m
+[32m+[m[32mtest_add_book_in_favorites_not_added_in_favorites_if_name_is_name[m
+[32m+[m
+[32m+[m[32mПроверяем, что нельзя добавить в избранное книги с одинаковым названием[m
+[32m+[m
+[32m+[m
+[32m+[m[32m###### **Удалить книгу из избранного**[m
+[32m+[m
+[32m+[m[32m* test_delete_book_from_favorites_not_deleted_book_with_invalid_name[m
+[32m+[m
+[32m+[m[32mПроверяем что нельзя удалить из избранного книгу которая туда не добавлялась[m
+[32m+[m
+[32m+[m
+[32m+[m[32m##### **_Удаление одной и той же книги повторно_**[m
+[32m+[m
+[32m+[m[32mtest_delete_book_from_favorites_book_deleted[m
+[32m+[m
+[32m+[m[32mПроверяем что нельзя удалить из избранного одну и туже книгу повторно[m
+[32m+[m
+[32m+[m
+[32m+[m[32m###### **Получить текущий список избранного**[m
+[32m+[m
+[32m+[m[32m* test_get_list_of_favorites_books_list_returned[m
+[32m+[m
+[32m+[m[32mФикстура добавляет названия книг. Наполняем список избранного и проверяем, что возвращается[m
+[32m+[m[32mсписок такой же, что был добавлен.[m
+\ No newline at end of file[m
+[1mdiff --git a/__pycache__/tests.cpython-313-pytest-8.3.4.pyc b/__pycache__/tests.cpython-313-pytest-8.3.4.pyc[m
+[1mnew file mode 100644[m
+[1mindex 0000000..1f10306[m
+Binary files /dev/null and b/__pycache__/tests.cpython-313-pytest-8.3.4.pyc differ
+[1mdiff --git a/tests.py b/tests.py[m
+[1mindex 383385e..9e5cb70 100644[m
+[1m--- a/tests.py[m
+[1m+++ b/tests.py[m
+[36m@@ -1,24 +1,92 @@[m
+[32m+[m[32mimport pytest[m
+[32m+[m[32mfrom test_data import BOOKS_NAMES_AND_GENRE[m
+ from main import BooksCollector[m
+ [m
+[31m-# класс TestBooksCollector объединяет набор тестов, которыми мы покрываем наше приложение BooksCollector[m
+[31m-# обязательно указывать префикс Test[m
+[32m+[m
+ class TestBooksCollector:[m
+ [m
+[31m-    # пример теста:[m
+[31m-    # обязательно указывать префикс test_[m
+[31m-    # дальше идет название метода, который тестируем add_new_book_[m
+[31m-    # затем, что тестируем add_two_books - добавление двух книг[m
+[31m-    def test_add_new_book_add_two_books(self):[m
+[31m-        # создаем экземпляр (объект) класса BooksCollector[m
+[31m-        collector = BooksCollector()[m
+[32m+[m[32m    @pytest.mark.parametrize('name', ['', 'Странная история доктора Джекила и мистера Хайда'])[m
+[32m+[m[32m    def test_add_new_book_not_added_with_invalid_name(self, name, books_collector):[m
+[32m+[m[32m        books_collector.add_new_book(name)[m
+[32m+[m[32m        assert name not in books_collector.get_books_genre()[m
+[32m+[m
+[32m+[m[32m    @pytest.mark.parametrize('genre_and_expected', [['Фантастика', 'Фантастика'], ['Криминал', '']])[m
+[32m+[m[32m    def test_set_book_genre_1_set_and_1_not_set(self, books_collector, genre_and_expected):[m
+[32m+[m[32m        genre, expected_result = genre_and_expected[m
+[32m+[m[32m        name = 'Гордость и предубеждение и зомби'[m
+[32m+[m
+[32m+[m[32m        books_collector.add_new_book(name)[m
+[32m+[m[32m        books_collector.set_book_genre(name, genre)[m
+[32m+[m
+[32m+[m[32m        genre_added = books_collector.get_book_genre(name)[m
+[32m+[m
+[32m+[m[32m        assert genre_added == expected_result[m
+[32m+[m
+[32m+[m[32m    def test_get_book_genre_return_genre_by_name(self, books_collector):[m
+[32m+[m[32m        name = 'Гордость и предубеждение и зомби'[m
+[32m+[m[32m        books_collector.add_new_book(name)[m
+[32m+[m
+[32m+[m[32m        assert books_collector.get_book_genre(name) == ''[m
+[32m+[m
+[32m+[m[32m    def test_get_books_with_specific_genre_returned_5(self, books_collector, add_books):[m
+[32m+[m[32m        genre = 'Фантастика'[m
+[32m+[m[32m        for book in books_collector.get_books_genre():[m
+[32m+[m[32m            books_collector.set_book_genre(book, genre)[m
+[32m+[m
+[32m+[m[32m        returned_books_list = books_collector.get_books_with_specific_genre('Фантастика')[m
+[32m+[m
+[32m+[m[32m        assert len(returned_books_list) == 5[m
+[32m+[m
+[32m+[m[32m    def test_get_books_genre_dict_books_genre_returned(self, books_collector, add_books, set_genre):[m
+[32m+[m[32m        returned_books_genre_dict = books_collector.get_books_genre()[m
+[32m+[m[32m        expected_books_genre_dict = BOOKS_NAMES_AND_GENRE[m
+[32m+[m
+[32m+[m[32m        assert returned_books_genre_dict == expected_books_genre_dict[m
+[32m+[m
+[32m+[m[32m    def test_get_books_for_children_return_non_rating_books(self, books_collector, add_books, set_genre):[m
+[32m+[m[32m        expected_books = ['Гарри Поттер и философский камень', 'Винни-Пух', 'Автостопом по галактике'][m
+[32m+[m[32m        returned_books = books_collector.get_books_for_children()[m
+[32m+[m
+[32m+[m[32m        assert returned_books == expected_books[m
+[32m+[m
+[32m+[m[32m    def test_add_book_in_favorites_not_added_book(self, books_collector):[m
+[32m+[m[32m        books_collector.add_book_in_favorites('Гордость и предубеждение и зомби')[m
+[32m+[m
+[32m+[m[32m        list_books = books_collector.get_list_of_favorites_books()[m
+[32m+[m
+[32m+[m[32m        assert len(list_books) == 0[m
+[32m+[m
+[32m+[m[32m    def test_add_book_in_favorites_not_added_in_favorites_if_name_is_name(self, books_collector):[m
+[32m+[m[32m        books_collector.add_new_book('Убийство в Восточном экспрессе')[m
+[32m+[m
+[32m+[m[32m        books_collector.add_book_in_favorites('Убийство в Восточном экспрессе')[m
+[32m+[m[32m        books_collector.add_book_in_favorites('Убийство в Восточном экспрессе')[m
+[32m+[m
+[32m+[m[32m        list_books = books_collector.get_list_of_favorites_books()[m
+[32m+[m
+[32m+[m[32m        assert len(list_books) == 1[m
+[32m+[m
+[32m+[m[32m    def test_delete_book_from_favorites_not_deleted_book_with_invalid_name(self, books_collector):[m
+[32m+[m[32m        books_collector.add_new_book('Гордость и предубеждение и зомби')[m
+[32m+[m
+[32m+[m[32m        books_collector.add_book_in_favorites('Гордость и предубеждение и зомби')[m
+[32m+[m[32m        books_collector.delete_book_from_favorites('Автостопом по галактике')[m
+[32m+[m
+[32m+[m[32m        list_books = books_collector.get_list_of_favorites_books()[m
+[32m+[m
+[32m+[m[32m        assert len(list_books) == 1[m
+[32m+[m
+[32m+[m[32m    def test_delete_book_from_favorites_book_deleted(self, books_collector):[m
+[32m+[m[32m        books_collector.add_new_book('Гордость и предубеждение и зомби')[m
+[32m+[m
+[32m+[m[32m        books_collector.add_book_in_favorites('Гордость и предубеждение и зомби')[m
+[32m+[m[32m        books_collector.delete_book_from_favorites('Гордость и предубеждение и зомби')[m
+ [m
+[31m-        # добавляем две книги[m
+[31m-        collector.add_new_book('Гордость и предубеждение и зомби')[m
+[31m-        collector.add_new_book('Что делать, если ваш кот хочет вас убить')[m
+[32m+[m[32m    def test_get_list_of_favorites_books_list_returned(self, books_collector, add_books):[m
+[32m+[m[32m        for book in books_collector.get_books_genre():[m
+[32m+[m[32m            books_collector.add_book_in_favorites(book)[m
+ [m
+[31m-        # проверяем, что добавилось именно две[m
+[31m-        # словарь books_rating, который нам возвращает метод get_books_rating, имеет длину 2[m
+[31m-        assert len(collector.get_books_rating()) == 2[m
+[32m+[m[32m        returned_list = books_collector.get_list_of_favorites_books()[m
+[32m+[m[32m        expected_list = list(books_collector.get_books_genre())[m
+ [m
+[31m-    # напиши свои тесты ниже[m
+[31m-    # чтобы тесты были независимыми в каждом из них создавай отдельный экземпляр класса BooksCollector()[m
+\ No newline at end of file[m
+[32m+[m[32m        assert returned_list == expected_list[m
+\ No newline at end of file[m
