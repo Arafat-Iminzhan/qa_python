@@ -28,9 +28,13 @@ class TestBooksCollector:
 
         assert books_collector.get_book_genre(name) == ''
 
-    def test_get_books_with_specific_genre_returned_5(self, books_collector, add_books):
+    def test_get_books_with_specific_genre_returned_5(self, books_collector):
         genre = 'Фантастика'
-        for book in books_collector.get_books_genre():
+
+        # Добавляем 5 книг
+        books = ['Гарри Поттер', 'Властелин Колец', 'Дюна', 'Фантастические твари', 'Звёздные войны']
+        for book in books:
+            books_collector.add_new_book(book)
             books_collector.set_book_genre(book, genre)
 
         returned_books_list = books_collector.get_books_with_specific_genre('Фантастика')
@@ -43,7 +47,18 @@ class TestBooksCollector:
 
         assert returned_books_genre_dict == expected_books_genre_dict
 
-    def test_get_books_for_children_return_non_rating_books(self, books_collector, add_books, set_genre):
+    def test_get_books_for_children_return_non_rating_books(self, books_collector):
+        books_genre_data = {
+            'Гарри Поттер и философский камень': 'Фантастика',
+            'Винни-Пух': 'Мультфильмы',
+            'Автостопом по галактике': 'Фантастика'
+        }
+
+        # Добавляем книги и устанавливаем жанры
+        for book, genre in books_genre_data.items():
+            books_collector.add_new_book(book)
+            books_collector.set_book_genre(book, genre)
+
         expected_books = ['Гарри Поттер и философский камень', 'Винни-Пух', 'Автостопом по галактике']
         returned_books = books_collector.get_books_for_children()
 
