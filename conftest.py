@@ -3,18 +3,22 @@ from main import BooksCollector
 from test_data import BOOKS_NAMES_AND_GENRE
 
 
-@pytest.fixture()
+@pytest.fixture
 def books_collector():
-    books_collector = BooksCollector()
-    return books_collector
+    """Создает новый объект BooksCollector для каждого теста"""
+    return BooksCollector()
 
 
-@pytest.fixture()
+@pytest.fixture
 def add_books(books_collector):
-    [books_collector.add_new_book(book) for book in BOOKS_NAMES_AND_GENRE]
+    books = ['Гарри Поттер', 'Властелин Колец', 'Дюна', 'Фантастические твари', 'Звёздные войны']
+    for book in books:
+        books_collector.add_new_book(book)
+    return books
 
 
-@pytest.fixture()
-def set_genre(books_collector):
-    [books_collector.set_book_genre(name, genre) for name, genre in BOOKS_NAMES_AND_GENRE.items()]
-
+@pytest.fixture
+def set_genre(books_collector, add_books):
+    genre = "Фантастика"
+    for book in add_books:
+        books_collector.set_book_genre(book, genre)
