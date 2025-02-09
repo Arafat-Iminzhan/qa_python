@@ -28,22 +28,40 @@ class TestBooksCollector:
 
         assert books_collector.get_book_genre(name) == ''
 
-    def test_get_books_with_specific_genre_returned_5(self, books_collector, add_books):
+    def test_get_books_with_specific_genre_returned_5(self, books_collector):
         genre = 'Фантастика'
-        for book in books_collector.get_books_genre():
+
+        # ✅ Добавляем 5 книг
+        books = ['Гарри Поттер', 'Властелин Колец', 'Дюна', 'Фантастические твари', 'Звёздные войны']
+        for book in books:
+            books_collector.add_new_book(book)
             books_collector.set_book_genre(book, genre)
 
         returned_books_list = books_collector.get_books_with_specific_genre('Фантастика')
 
         assert len(returned_books_list) == 5
 
-    def test_get_books_genre_dict_books_genre_returned(self, books_collector, add_books, set_genre):
+    def test_get_books_genre_dict_books_genre_returned(self, books_collector):
+        books_collector.add_new_book('Гарри Поттер')
+        books_collector.set_book_genre('Гарри Поттер', 'Фантастика')
+
+        expected_books_genre_dict = {'Гарри Поттер': 'Фантастика'}
         returned_books_genre_dict = books_collector.get_books_genre()
-        expected_books_genre_dict = BOOKS_NAMES_AND_GENRE
 
         assert returned_books_genre_dict == expected_books_genre_dict
 
-    def test_get_books_for_children_return_non_rating_books(self, books_collector, add_books, set_genre):
+    def test_get_books_for_children_return_non_rating_books(self, books_collector):
+        books_genre_data = {
+            'Гарри Поттер и философский камень': 'Фантастика',
+            'Винни-Пух': 'Мультфильмы',
+            'Автостопом по галактике': 'Фантастика'
+        }
+
+        # ✅ Добавляем книги и устанавливаем жанры
+        for book, genre in books_genre_data.items():
+            books_collector.add_new_book(book)
+            books_collector.set_book_genre(book, genre)
+
         expected_books = ['Гарри Поттер и философский камень', 'Винни-Пух', 'Автостопом по галактике']
         returned_books = books_collector.get_books_for_children()
 
@@ -82,11 +100,15 @@ class TestBooksCollector:
         books_collector.add_book_in_favorites('Гордость и предубеждение и зомби')
         books_collector.delete_book_from_favorites('Гордость и предубеждение и зомби')
 
-    def test_get_list_of_favorites_books_list_returned(self, books_collector, add_books):
-        for book in books_collector.get_books_genre():
+        list_books = books_collector.get_list_of_favorites_books()
+        assert 'Гордость и предубеждение и зомби' not in list_books
+
+    def test_get_list_of_favorites_books_list_returned(self, books_collector):
+        for book in ['Гарри Поттер', 'Властелин Колец']:
+            books_collector.add_new_book(book)
             books_collector.add_book_in_favorites(book)
 
         returned_list = books_collector.get_list_of_favorites_books()
-        expected_list = list(books_collector.get_books_genre())
+        expected_list = ['Гарри Поттер', 'Властелин Колец']
 
         assert returned_list == expected_list
